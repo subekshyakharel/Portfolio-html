@@ -16,6 +16,7 @@ html{
 }
 body {
     margin:0 ;
+    overflow-x: hidden;
 }
 .container{
     width: 80%; 
@@ -168,7 +169,7 @@ letter-spacing: 5px;
 }
 
 .right img {
-    height: 115%;
+    height: 100%;
 }
 /* <!-- banner section  --> */
 .banner{
@@ -248,7 +249,7 @@ grid-template-columns: repeat(2, 1fr);
 .about{
     margin-top: 5rem;
     background: rgba(120, 205, 50, 0.625);
-    padding: 7rem;
+    padding: 7rem 0;
 }
 .about .nyImg{
     width: 40%;
@@ -343,4 +344,87 @@ footer .top ul li {
     position: fixed;
     right: 20px;
     bottom: 60px;
+}
+#Menu{
+    display: none;
+}
+[for="Menu"]{
+    cursor: pointer;
+    display: none;
+}
+
+/* media query  */
+@media (max-width: 768px) {
+    [for="Menu"]{
+        cursor: pointer;
+        display: block;
+    }
+    .menu{
+        position: absolute;
+        background: var(--body-bg);
+
+        width: 250px;
+        height: 100vh;
+        top: 3.7rem;
+
+        box-shadow: 4px -2px 40px 9px rgba(128, 128, 128, 0.404);
+
+        left: 100vw;
+        transition: all 0.5s;
+    }
+    .menu .navigation{
+        flex-direction: column;
+        font-size: 1.3rem;
+        
+    }
+    .menu .navigation li {
+        line-height: 2.5rem;
+    }
+
+    #Menu:checked +.menu{
+        left: calc(100vw - 250px);
+    }
+
+    /* hero  */
+    .hero{
+        grid-template-areas: 
+        "right"
+        "left";
+        /* margin-bottom: 3rem; */
+    }
+    .hero .right {
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .hero .right img {
+        width: 200px;
+    }
+
+    /* banner  */
+    .banner{
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding-left: 20px;
+    }
+    .info-divider{
+        display: none;
+    }
+
+    /* projects  */
+    .projects .project-container{
+        grid-template-columns: 1fr;
+    }
+
+    /* about  */
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about .myImg{
+        width: 100%;
+    }
 }
